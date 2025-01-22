@@ -29,18 +29,18 @@
       url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
       dest: /tmp/frontend.zip
 
-    - name: unzip the application code
-      ansible.builtin.unarchive:
-        src: /tmp/frontend.zip
-        dest: /usr/share/nginx/html
-        remote_src: yes
+  - name: unzip the application code
+    ansible.builtin.unarchive:
+      src: /tmp/frontend.zip
+      dest: /usr/share/nginx/html
+      remote_src: yes
 
-    - name: copy backend service file from anisble server to remote backend server
-      ansible.builtin.copy:
-        src: frontend.conf
-        dest: /etc/nginx/default.d/expense.conf  
+  - name: copy backend service file from anisble server to remote backend server
+    ansible.builtin.copy:
+      src: frontend.conf
+      dest: /etc/nginx/default.d/expense.conf  
 
-    - name: restart the nginx service
-      ansible.builtin.service:
-        name: nginx
-        state: restarted
+  - name: restart the nginx service
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
