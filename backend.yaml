@@ -58,3 +58,4 @@
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.psrexpense.store
+      target: /app/schema/backend.sql
