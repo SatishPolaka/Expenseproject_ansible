@@ -48,7 +48,7 @@
 
   - name: install backend library
     ansible.builtin.pip:
-      name: "{{ packges}}"
+      name: "{{ packages }}"
       executable: pip3.9
     vars:
       packages:
