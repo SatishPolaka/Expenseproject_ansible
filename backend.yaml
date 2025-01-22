@@ -37,3 +37,7 @@
   - name: install the nodejs dependencies
     community.general.npm:
       path: /app
+
+  - name: copy backend service file from anisble server to remote backend server
+    ansible.builtin.copy
+      src: /
