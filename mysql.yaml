@@ -5,7 +5,7 @@
 
   - name: install mysql libraries
     ansible.builtin.pip:
-      name: {{ packages }}
+      name: "{{ packages }}"
       executable: pip3.9
     vars:
       packages:
