@@ -11,8 +11,11 @@
 
   - name: install nodejs
     ansible.builtin.package:
-      name: nodejs
+      name: "{{ item}}"
       state: installed
+    loop:
+    - nodejs
+    - mysq;
 
   - name: create a user expense
     ansible.builtin.user:
@@ -39,5 +42,14 @@
       path: /app
 
   - name: copy backend service file from anisble server to remote backend server
-    ansible.builtin.copy
-      src: /
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
+
+  - name: import the sql schema
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.psrexpense.store
