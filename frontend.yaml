@@ -3,9 +3,9 @@
   become: yes
   tasks:
 
-  - name: install the ingins server
+  - name: install the nginx server
     ansible.builtin.dnf:
-      name: inginx
+      name: nginx
       state: installed
 
   - name: start and enable the nginx service
