@@ -48,8 +48,12 @@
 
   - name: install backend library
     ansible.builtin.pip:
-      name: PyMySQL
+      name: "{{ packges}}"
       executable: pip3.9
+    vars:
+      packages:
+      - PyMySQL
+      - cryptography
 
   - name: import the sql schema
     community.mysql.mysql_db:
