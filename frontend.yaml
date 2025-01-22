@@ -1,0 +1,15 @@
+- name: configure frontend
+  hosts: frontend
+  become: yes
+  tasks:
+
+  - name: install the ingins server
+    ansible.builtin.dnf:
+      name: inginx
+      state: installed
+
+  - name: start and enable the nginx service
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
