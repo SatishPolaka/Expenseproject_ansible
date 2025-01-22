@@ -7,10 +7,10 @@
     ansible.builtin.pip:
       name: {{ packages }}
       executable: pip3.9
-      vars:
-        packages:
-          - PyMySQL
-          - cryptography
+    vars:
+      packages:
+        - PyMySQL
+        - cryptography
 
   - name: Install mysql server
     ansible.builtin.package:
