@@ -3,12 +3,17 @@
   become: yes
   tasks:
 
+  - name: install mysql libraries
+    ansible.builtin.pip:
+      name: PyMySQL
+      executable: pip3.9
+      
   - name: Install mysql server
     ansible.builtin.package:
       name: mysql-server
       state: installed
 
-  - name: start and enabke the mysql service
+  - name: start and enable the mysql service
     ansible.builtin.service:
       name: mysqld
       state: started
@@ -24,5 +29,6 @@
   - name: print the output
     ansible.builtin.debug:
       msg: "mysql info: {{mysql_info}}"
+
 
   
